@@ -1,0 +1,24 @@
+.profile-form__submit-button {
+    width: 100%;
+    padding: 0;
+    height: 46px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    line-height: 17px;
+    border: none;
+    border-radius: 2px;
+    transition: opacity 0.5s linear;
+    cursor: pointer;
+}
+
+.profile-form__submit-button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+    .profile-form__submit-button {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

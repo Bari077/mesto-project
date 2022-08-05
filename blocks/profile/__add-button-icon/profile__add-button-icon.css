@@ -1,0 +1,17 @@
+.profile__add-button-icon {
+    width: 16px;
+    height: 16px;    
+}
+
+@media screen and (min-width: 768px) {
+    .profile__add-button-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* svg подключаем в html
+<svg class="profile__add-button-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M16 7.111H8.889V0H7.11v7.111H0V8.89h7.111V16H8.89V8.889H16V7.11Z" fill="#fff"/>
+</svg>
+/*

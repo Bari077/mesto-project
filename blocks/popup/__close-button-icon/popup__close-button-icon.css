@@ -1,0 +1,17 @@
+.popup__close-button-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .popup__close-button-icon {
+      width: 32px;
+      height: 32px;
+    }  
+}
+
+/* svg  подключаем в html
+<svg class="popup__close-button-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="m20 18-8-8 8-8-2-2-8 8-8-8-2 2 8 8-8 8 2 2 8-8 8 8 2-2Z" fill="#fff"/>
+</svg>
+*/
