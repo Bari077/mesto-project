@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Третья проектная работа в рамках спринта Адаптивная верстка">
     <title>Место</title>
-    <link rel="stylesheet" href="/pages/index.css">
+    <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="main">
   <div class="page">
@@ -13,32 +13,28 @@
       <div class="header__logo"></div>
     </header>
     <section class="profile">
-      <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
+      <img class="profile__avatar" src="images/profile-photo.jpg" alt="Фото профиля">
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button"></button>
+        <button class="profile__edit-button" type="button"></button>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
-      <button class="profile__add-button">
-        <svg class="profile__add-button-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-          <path d="M16 7.111H8.889V0H7.11v7.111H0V8.89h7.111V16H8.89V8.889H16V7.11Z" fill="#fff"/>
-        </svg>
+      <button class="profile__add-button" type="button">
+        <div class="profile__add-button-icon"></div>
       </button>
       <div class="popup">
         <div class="popup__container">
-          <button class="popup__close-button">
-            <svg class="popup__close-button-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="m20 18-8-8 8-8-2-2-8 8-8-8-2 2 8 8-8 8 2 2 8-8 8 8 2-2Z" fill="#fff"/>
-            </svg>
+          <button class="popup__close-button" type="button">
+            <div class="popup__close-button-icon"></div>
           </button>          
-          <form class="profile-form">
+          <form class="profile-form" name="profile-form">
             <h2 class="profile-form__heading">Редактировать профиль</h2>
             <fieldset class="profile-form__input-container">
-              <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто">
-              <input type="text" class="profile-form__item" placeholder="Исследователь океана">
+              <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="profile__title">
+              <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="profile__subtitle">
             </fieldset>
             <fieldset class="profile-form__submit">
-              <input type="submit" class="profile-form__submit-button" value="Сохранить">
+              <input type="submit" class="profile-form__submit-button" value="Сохранить" name="form__submit">
             </fieldset>
           </form>
         </div>
@@ -46,42 +42,42 @@
     </section>
     <section class="cards">
       <article class="card">
-        <img class="card__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+        <img class="card__image" src="images/karachaevsk.jpg" alt="Карачаевск">
         <div class="card__caption">
           <h2 class="card__title">Карачаевск</h2>
           <button class="card__like"></button>
         </div>
       </article>
       <article class="card">
-        <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+        <img class="card__image" src="images/elbrus.jpg" alt="Гора Эльбрус">
         <div class="card__caption">
           <h2 class="card__title">Гора Эльбрус</h2>
-          <button class="card__like"></button>
+          <button class="card__like" type="button"></button>
         </div>
       </article>
       <article class="card">
-        <img class="card__image" src="./images/dombai.jpg" alt="Домбай">
+        <img class="card__image" src="images/dombai.jpg" alt="Домбай">
         <div class="card__caption">
           <h2 class="card__title">Домбай</h2>
           <button class="card__like"></button>
         </div>
       </article>
       <article class="card">
-        <img class="card__image" src="./images/ural.jpg" alt="Урал">
+        <img class="card__image" src="images/ural.jpg" alt="Урал">
         <div class="card__caption">
           <h2 class="card__title">Урал</h2>
           <button class="card__like"></button>
         </div>
       </article>
       <article class="card">
-        <img class="card__image" src="./images/adygeya.jpg" alt="Адыгея">
+        <img class="card__image" src="images/adygeya.jpg" alt="Адыгея">
         <div class="card__caption">
           <h2 class="card__title">Адыгея</h2>
           <button class="card__like"></button>
         </div>
       </article>
       <article class="card">
-        <img class="card__image" src="./images/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
+        <img class="card__image" src="images/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
         <div class="card__caption">
           <h2 class="card__title">Карачаево-Черкессия</h2>
           <button class="card__like"></button>

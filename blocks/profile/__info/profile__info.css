@@ -10,6 +10,7 @@
     .profile__info {
         justify-content: start;
         padding-left: 30px;
+        max-width: 316px;
     }
 }
 
