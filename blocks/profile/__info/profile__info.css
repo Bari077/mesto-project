@@ -3,7 +3,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: baseline;
-    max-width: 282px;    
+    max-width: 282px;
+    padding-bottom: 36px;
+    padding-top: 23px;  
 }
 
 @-moz-document url-prefix() {
@@ -17,6 +19,8 @@
         justify-content: start;
         padding-left: 30px;
         max-width: 316px;
+        padding-bottom: 0;
+        padding-top: 0;
     }
 }
 

@@ -1,13 +1,11 @@
 .profile__add-button {    
     width: 282px;
     height: 50px;
-    border: 2px solid #FFFFFF;
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url(../../../images/Add-Button.svg);
+    background-size: cover;    
     transition: opacity 0.5s linear;
     background-color: #000000;
+    border: none;
     cursor: pointer;        
 }
 
@@ -15,10 +13,9 @@
     opacity: 0.6;
 }
 
-
-
 @media screen and (min-width: 768px) {
     .profile__add-button {
+        background-image: url(../../../images/Add-Button_short.svg);
         width: 150px;
         height: 50px;
     }
