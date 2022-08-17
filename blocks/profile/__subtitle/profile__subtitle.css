@@ -4,7 +4,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -15,7 +14,7 @@
         margin-bottom: 0;
         font-size: 16px;
         line-height: 19px;
-        max-width: 302px;
+        width: 302px;
     }
 }
 
@@ -23,6 +22,6 @@
     .profile__subtitle {
         font-size: 18px;
         line-height: 22px;
-        max-width: 336px;
+        width: 336px;
     }
 }

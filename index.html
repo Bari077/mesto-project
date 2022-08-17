@@ -17,52 +17,52 @@
         <img class="profile__avatar" src="images/profile-photo.jpg" alt="Фото профиля">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button"></button>
+          <button class="profile__edit-button" type="button" data-target="modal-profile" id="openModal"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button"></button>      
+        <button class="profile__add-button" type="button" data-target="modal-addCard" id="openModal"></button>      
       </section>
       <section class="cards">
         <article class="card">
           <img class="card__image" src="images/karachaevsk.jpg" alt="Карачаевск">
           <div class="card__caption">
             <h2 class="card__title">Карачаевск</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button"  data-target="card__like_active"></button>
           </div>
         </article>
         <article class="card">
           <img class="card__image" src="images/elbrus.jpg" alt="Гора Эльбрус">
           <div class="card__caption">
             <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button" data-target="card__like_active"></button>
           </div>
         </article>
         <article class="card">
           <img class="card__image" src="images/dombai.jpg" alt="Домбай">
           <div class="card__caption">
             <h2 class="card__title">Домбай</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button" data-target="card__like_active"></button>
           </div>
         </article>
         <article class="card">
           <img class="card__image" src="images/ural.jpg" alt="Урал">
           <div class="card__caption">
             <h2 class="card__title">Урал</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button" data-target="card__like_active"></button>
           </div>
         </article>
         <article class="card">
           <img class="card__image" src="images/adygeya.jpg" alt="Адыгея">
           <div class="card__caption">
             <h2 class="card__title">Адыгея</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button" data-target="card__like_active"></button>
           </div>
         </article>
         <article class="card">
           <img class="card__image" src="images/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
           <div class="card__caption">
             <h2 class="card__title">Карачаево-Черкессия</h2>
-            <button class="card__like" type="button"></button>
+            <button class="card__like" type="button" data-target="card__like_active"></button>
           </div>
         </article>     
       </section>
@@ -70,20 +70,43 @@
     <footer class="footer">
       <p class="footer__copyright">&copy;2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup" id="modal-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>          
         <form class="profile-form" name="profile-form">
           <h2 class="profile-form__heading">Редактировать профиль</h2>
           <fieldset class="profile-form__input-container">
-            <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="profile__title">
-            <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="profile__subtitle">
+            <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="profile__title" value="Жак-Ив Кусто">
+            <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="profile__subtitle" value="Ислледователь океана">
           </fieldset>
             <input type="submit" class="profile-form__submit-button" value="Сохранить" name="form__submit">
         </form>
       </div>
-    </div>    
+    </div>
+    <div class="popup" id="modal-addCard">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>          
+        <form class="profile-form" name="addCard-form">
+          <h2 class="profile-form__heading">Новое место</h2>
+          <fieldset class="profile-form__input-container">
+            <input type="text" class="profile-form__item" placeholder="Название" name="profile__title">
+            <input type="text" class="profile-form__item" placeholder="Ссылка на картинку" name="profile__subtitle">
+          </fieldset>
+            <input type="submit" class="profile-form__submit-button" value="Сохранить" name="form__submit">
+        </form>
+      </div>
+    </div>        
   </div>
+  <template id="card-template">
+    <article class="card">
+      <img class="card__image" src="" alt="">
+      <div class="card__caption">
+        <h2 class="card__title"></h2>
+        <button class="card__like" type="button"></button>
+      </div>
+    </article>
+  </template>
+  <script src="modal.js"></script> 
   <script src="script.js"></script>   
 </body>
 </html>
