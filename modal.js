@@ -11,4 +11,4 @@ $toggleModal.forEach($openButton => {
             $modalPopup.classList.remove('popup_opened');
         });
     });
-}) ;
+});

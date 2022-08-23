@@ -22,7 +22,7 @@
         </div>
         <button class="profile__add-button" type="button" data-target="modal-addCard" id="openModal"></button>      
       </section>
-      <section class="cards">            
+      <section class="cards">                
       </section>
     </main>
     <footer class="footer">
@@ -53,18 +53,26 @@
             <input type="submit" class="profile-form__submit-button" value="Создать" name="form__submit">
         </form>
       </div>
-    </div>        
-  </div>
+    </div>
+    <div class="popup popup_bg_dark" id="modal-Image"></div>
   <template id="card-template">
     <article class="card">
       <img class="card__image" src="" alt="">
       <div class="card__caption">
         <h2 class="card__title"></h2>
-        <button class="card__like" type="button"></button>
+        <button class="card__like" type="button"></button>        
       </div>
+      <button class="card__trash" type="button"></button>
     </article>
   </template>
+  <template id="popupImage-template">
+  <div class="popup__container popup__container_type_image">
+    <button class="popup__close-button" type="button"></button>
+    <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"> 
+    <p class="popup__image-caption"></p>       
+  </div>
+</template> 
   <script src="modal.js"></script> 
-  <script src="script.js"></script>   
+  <script src="script.js"></script> 
 </body>
 </html>
