@@ -3,7 +3,7 @@
     background-size: cover;
     height: 18px;
     width: 18px;
-    background-position: top;
+    overflow: overlay;
     margin-left: 10px; 
     transition: opacity 0.5s linear;
     background-color: #000000;
