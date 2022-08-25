@@ -17,10 +17,10 @@
         <img class="profile__avatar" src="images/profile-photo.jpg" alt="Фото профиля">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button" data-target="modal-profile" id="openModal"></button>
+          <button class="profile__edit-button openModal" type="button" data-target="modal-profile"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button" data-target="modal-addCard" id="openModal"></button>      
+        <button class="profile__add-button openModal" type="button" data-target="modal-addCard"></button>      
       </section>
       <section class="cards">                
       </section>
@@ -31,7 +31,7 @@
     <div class="popup" id="modal-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>          
-        <form class="profile-form" name="profile-form">
+        <form class="profile-form" name="profile-form" id="formProfile">
           <h2 class="profile-form__heading">Редактировать профиль</h2>
           <fieldset class="profile-form__input-container">
             <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="profile__title" value="Жак-Ив Кусто">
@@ -54,25 +54,32 @@
         </form>
       </div>
     </div>
-    <div class="popup popup_bg_dark" id="modal-Image"></div>
-  <template id="card-template">
-    <article class="card">
-      <img class="card__image" src="" alt="">
-      <div class="card__caption">
-        <h2 class="card__title"></h2>
-        <button class="card__like" type="button"></button>        
+    <div class="popup popup_bg_dark" id="modal-Image">
+      <div class="popup__container popup__container_type_image">
+        <button class="popup__close-button" type="button"></button>
+        <img class="popup__image" src=""> 
+        <p class="popup__image-caption"></p>       
       </div>
-      <button class="card__trash" type="button"></button>
-    </article>
-  </template>
-  <template id="popupImage-template">
-  <div class="popup__container popup__container_type_image">
-    <button class="popup__close-button" type="button"></button>
-    <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"> 
-    <p class="popup__image-caption"></p>       
+    </div>
+    <template id="card-template">
+      <article class="card">
+        <img class="card__image openModal" data-target="" src="" alt="">
+        <div class="card__caption">
+          <h2 class="card__title"></h2>
+          <button class="card__like" type="button"></button>        
+        </div>
+        <button class="card__trash" type="button"></button>
+      </article>
+    </template>
+    <template id="popupImage-template">
+    <div class="popup__container popup__container_type_image">
+      <button class="popup__close-button" type="button"></button>
+      <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"> 
+      <p class="popup__image-caption"></p>       
+    </div>
+    </template>
   </div>
-</template> 
-  <script src="modal.js"></script> 
-  <script src="script.js"></script> 
+  <script src="./scripts/card.js"></script>   
+  <script src="./scripts/index.js"></script> 
 </body>
 </html>

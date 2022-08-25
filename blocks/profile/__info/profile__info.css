@@ -9,6 +9,12 @@
     padding-top: 23px;  
 }
 
+.profile__info::after {
+    content: '';
+    width: 100%;
+    order: 1;
+}
+
 @-moz-document url-prefix() {
     .profile__info {
         align-items: center;
