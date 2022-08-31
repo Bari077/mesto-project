@@ -30,12 +30,12 @@
     </footer>
     <div class="popup" id="modal-profile">
       <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>          
+        <button class="popup__close-button" type="button" data-target="modal-profile"></button>          
         <form class="profile-form" name="profile-form" id="formProfile">
           <h2 class="profile-form__heading">Редактировать профиль</h2>
           <fieldset class="profile-form__input-container">
-            <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="profile__title" value="Жак-Ив Кусто">
-            <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="profile__subtitle" value="Ислледователь океана">
+            <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="name" value="Жак-Ив Кусто">
+            <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="job" value="Ислледователь океана">
           </fieldset>
             <input type="submit" class="profile-form__submit-button" value="Сохранить" name="form__submit">
         </form>
@@ -43,7 +43,7 @@
     </div>
     <div class="popup" id="modal-addCard">
       <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>          
+        <button class="popup__close-button" type="button" data-target="modal-addCard"></button>          
         <form class="profile-form" name="addCard-form">
           <h2 class="profile-form__heading">Новое место</h2>
           <fieldset class="profile-form__input-container">
@@ -56,8 +56,8 @@
     </div>
     <div class="popup popup_bg_dark" id="modal-Image">
       <div class="popup__container popup__container_type_image">
-        <button class="popup__close-button" type="button"></button>
-        <img class="popup__image" src=""> 
+        <button class="popup__close-button" type="button" data-target="modal-Image"></button>
+        <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Архыз"> 
         <p class="popup__image-caption"></p>       
       </div>
     </div>
@@ -70,14 +70,7 @@
         </div>
         <button class="card__trash" type="button"></button>
       </article>
-    </template>
-    <template id="popupImage-template">
-    <div class="popup__container popup__container_type_image">
-      <button class="popup__close-button" type="button"></button>
-      <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg"> 
-      <p class="popup__image-caption"></p>       
-    </div>
-    </template>
+    </template>   
   </div>
   <script src="./scripts/card.js"></script>   
   <script src="./scripts/index.js"></script> 

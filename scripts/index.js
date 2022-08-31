@@ -1,21 +1,31 @@
-const $openModal = document.querySelectorAll('.openModal');
-$openModal.forEach($openButton => {
-  const $modalPopup = document.getElementById($openButton.dataset.target);
-  $openButton.addEventListener('click', () => {
-    $modalPopup.classList.add('popup_opened');
-  }); 
+
+function openPopup(popupId) {
+  const $modalPopup = document.getElementById(popupId);
+  $modalPopup.classList.add('popup_opened');
+};
+
+function closePopup(popupId) {
+  const $modalPopup = document.getElementById(popupId);
+  $modalPopup.classList.remove('popup_opened');
+};
+
+const $openBtn = document.querySelectorAll('.openModal');
+$openBtn.forEach(function(el) {
+  el.addEventListener('click', () => {
+    openPopup(el.dataset.target);
+  });
 });
- 
-const $closeModal = document.querySelectorAll('.popup__close-button');
-$closeModal.forEach($closeButton => {
-  $closeButton.addEventListener('click', () => {
-    $closeButton.closest('.popup').classList.remove('popup_opened');
+
+const $closeBtn = document.querySelectorAll('.popup__close-button');
+$closeBtn.forEach(function(el) {
+  el.addEventListener('click', () => {
+    closePopup(el.dataset.target);
   });
 });
 
 const $formProfile = document.forms['profile-form'];
-const $inputName = $formProfile.elements['profile__title'];
-const $inputJob = $formProfile.elements['profile__subtitle'];
+const $inputName = $formProfile.elements['name'];
+const $inputJob = $formProfile.elements['job'];
 const $profileName = document.querySelector('.profile__title');
 const $profileJob = document.querySelector('.profile__subtitle');
 
@@ -27,7 +37,10 @@ function submitFormProfile (evt) {
   else {
   $profileName.textContent = $inputName.value;
   $profileJob.textContent = $inputJob.value;    
-  document.querySelector('#modal-profile').classList.remove('popup_opened');
+  closePopup('modal-profile');
+  $inputName.setAttribute('value', $profileName.textContent);
+  $inputJob.setAttribute('value', $profileJob.textContent);  
+  evt.target.reset();
   }
 };
 
@@ -46,8 +59,7 @@ function addCard (cardImg , cardTitle) {
   });
 
   $cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
-    const $imagePopup = document.getElementById(evt.target.dataset.target);
-    $imagePopup.classList.add('popup_opened');
+    openPopup(evt.target.dataset.target);    
     document.querySelector('.popup__image').setAttribute('src', cardImg);
     document.querySelector('.popup__image').setAttribute('alt', cardTitle);
     document.querySelector('.popup__image-caption').textContent = cardTitle;
@@ -69,7 +81,7 @@ function submitAddCard (evt) {
   else {
   $newCard = addCard($inputImgLink.value, $inputTitle.value);
   $cardsContainer.prepend($newCard);
-  document.querySelector('#modal-addCard').classList.remove('popup_opened');
+  closePopup('modal-addCard');
   evt.target.reset();
   };    
 };
