@@ -17,10 +17,10 @@
         <img class="profile__avatar" src="images/profile-photo.jpg" alt="Фото профиля">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button openModal" type="button" data-target="modal-profile"></button>
+          <button class="profile__edit-button" type="button" id="editProfile"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-button openModal" type="button" data-target="modal-addCard"></button>      
+        <button class="profile__add-button" type="button" id="addCard"></button>      
       </section>
       <section class="cards">                
       </section>
@@ -30,7 +30,7 @@
     </footer>
     <div class="popup" id="modal-profile">
       <div class="popup__container">
-        <button class="popup__close-button" type="button" data-target="modal-profile"></button>          
+        <button class="popup__close-button" type="button"></button>          
         <form class="profile-form" name="profile-form" id="formProfile">
           <h2 class="profile-form__heading">Редактировать профиль</h2>
           <fieldset class="profile-form__input-container">
@@ -43,7 +43,7 @@
     </div>
     <div class="popup" id="modal-addCard">
       <div class="popup__container">
-        <button class="popup__close-button" type="button" data-target="modal-addCard"></button>          
+        <button class="popup__close-button" type="button"></button>          
         <form class="profile-form" name="addCard-form">
           <h2 class="profile-form__heading">Новое место</h2>
           <fieldset class="profile-form__input-container">
@@ -56,14 +56,14 @@
     </div>
     <div class="popup popup_bg_dark" id="modal-Image">
       <div class="popup__container popup__container_type_image">
-        <button class="popup__close-button" type="button" data-target="modal-Image"></button>
+        <button class="popup__close-button" type="button"></button>
         <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Архыз"> 
         <p class="popup__image-caption"></p>       
       </div>
     </div>
     <template id="card-template">
       <article class="card">
-        <img class="card__image openModal" data-target="" src="" alt="">
+        <img class="card__image" src="" alt="">
         <div class="card__caption">
           <h2 class="card__title"></h2>
           <button class="card__like" type="button"></button>        

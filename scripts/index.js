@@ -1,25 +1,31 @@
+const $modalProfile = document.querySelector('#modal-profile');
+const $modalAddCard = document.querySelector('#modal-addCard');
+const $modalImage = document.querySelector('#modal-Image');
+const $editBtn = document.querySelector('#editProfile');
+const $addCardBtn = document.querySelector('#addCard');
 
 function openPopup(popupId) {
-  const $modalPopup = document.getElementById(popupId);
-  $modalPopup.classList.add('popup_opened');
+  popupId.classList.add('popup_opened');
 };
 
-function closePopup(popupId) {
-  const $modalPopup = document.getElementById(popupId);
-  $modalPopup.classList.remove('popup_opened');
-};
-
-const $openBtn = document.querySelectorAll('.openModal');
-$openBtn.forEach(function(el) {
-  el.addEventListener('click', () => {
-    openPopup(el.dataset.target);
-  });
+$editBtn.addEventListener('click', () => {  
+  $inputName.setAttribute('value', $profileName.textContent);
+  $inputJob.setAttribute('value', $profileJob.textContent);
+  openPopup($modalProfile);
 });
 
-const $closeBtn = document.querySelectorAll('.popup__close-button');
+$addCardBtn.addEventListener('click', () => {
+  openPopup($modalAddCard);
+});
+
+function closePopup(popupId) {
+  popupId.classList.remove('popup_opened');
+};
+
+$closeBtn = document.querySelectorAll('.popup__close-button');
 $closeBtn.forEach(function(el) {
   el.addEventListener('click', () => {
-    closePopup(el.dataset.target);
+    closePopup(el.closest('.popup'));
   });
 });
 
@@ -37,9 +43,7 @@ function submitFormProfile (evt) {
   else {
   $profileName.textContent = $inputName.value;
   $profileJob.textContent = $inputJob.value;    
-  closePopup('modal-profile');
-  $inputName.setAttribute('value', $profileName.textContent);
-  $inputJob.setAttribute('value', $profileJob.textContent);  
+  closePopup($modalProfile);  
   evt.target.reset();
   }
 };
@@ -53,13 +57,12 @@ function addCard (cardImg , cardTitle) {
   $cardElement.querySelector('.card__title').textContent = cardTitle;
   $cardElement.querySelector('.card__image').setAttribute('src', cardImg);
   $cardElement.querySelector('.card__image').setAttribute('alt', cardTitle);
-  $cardElement.querySelector('.card__image').setAttribute('data-target', 'modal-Image');
   $cardElement.querySelector('.card__like').addEventListener('click', function(evt) {
     evt.target.classList.toggle('card__like_active');
   });
 
   $cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
-    openPopup(evt.target.dataset.target);    
+    openPopup($modalImage);    
     document.querySelector('.popup__image').setAttribute('src', cardImg);
     document.querySelector('.popup__image').setAttribute('alt', cardTitle);
     document.querySelector('.popup__image-caption').textContent = cardTitle;
@@ -81,7 +84,7 @@ function submitAddCard (evt) {
   else {
   $newCard = addCard($inputImgLink.value, $inputTitle.value);
   $cardsContainer.prepend($newCard);
-  closePopup('modal-addCard');
+  closePopup($modalAddCard);
   evt.target.reset();
   };    
 };
