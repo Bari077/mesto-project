@@ -31,26 +31,30 @@
     <div class="popup" id="modal-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>          
-        <form class="profile-form" name="profile-form" id="formProfile">
-          <h2 class="profile-form__heading">Редактировать профиль</h2>
-          <fieldset class="profile-form__input-container">
-            <input type="text" class="profile-form__item" placeholder="Жак-Ив Кусто" name="name" value="Жак-Ив Кусто">
-            <input type="text" class="profile-form__item" placeholder="Исследователь океана" name="job" value="Ислледователь океана">
+        <form class="popup__form" name="profile-form" novalidate>
+          <h2 class="popup__heading">Редактировать профиль</h2>
+          <fieldset class="popup__input-container">
+            <input type="text" class="popup__input" id="name-input" placeholder="Имя" name="name" value="" minlength="2" maxlength="40" required>
+            <span class="popup__error name-input-error"></span>           
+            <input type="text" class="popup__input" id="job-input" placeholder="О себе" name="job" value="" minlength="2" maxlength="200" required>
+            <span class="popup__error job-input-error"></span>
           </fieldset>
-            <input type="submit" class="profile-form__submit-button" value="Сохранить" name="form__submit">
+            <input type="submit" class="popup__button" value="Сохранить" name="form__submit">
         </form>
       </div>
     </div>
     <div class="popup" id="modal-addCard">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>          
-        <form class="profile-form" name="addCard-form">
-          <h2 class="profile-form__heading">Новое место</h2>
-          <fieldset class="profile-form__input-container">
-            <input type="text" class="profile-form__item" placeholder="Название" name="profile__title" value="">
-            <input type="url" class="profile-form__item" placeholder="Ссылка на картинку" name="profile__subtitle" value="">
+        <form class="popup__form" name="addCard-form" novalidate>
+          <h2 class="popup__heading">Новое место</h2>
+          <fieldset class="popup__input-container">
+            <input type="text" class="popup__input" id="title-input" placeholder="Название" name="profile__title" value="" minlength="2" maxlength="30" required>
+            <span class="popup__error title-input-error"></span>
+            <input type="url" class="popup__input" id="url-input" placeholder="Ссылка на картинку" name="profile__subtitle" value="" required>
+            <span class="popup__error url-input-error"></span>
           </fieldset>
-            <input type="submit" class="profile-form__submit-button" value="Создать" name="form__submit">
+            <input type="submit" class="popup__button" value="Создать" name="form__submit">
         </form>
       </div>
     </div>
@@ -72,7 +76,7 @@
       </article>
     </template>   
   </div>
-  <script src="./scripts/card.js"></script>   
-  <script src="./scripts/index.js"></script> 
+    
+  <script type="module" src="./scripts/index.js"></script> 
 </body>
 </html>
