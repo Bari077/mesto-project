@@ -48,9 +48,9 @@
         <form class="popup__form" name="addCard-form" novalidate>
           <h2 class="popup__heading">Новое место</h2>
           <fieldset class="popup__input-container">
-            <input type="text" class="popup__input" id="title-input" placeholder="Название" name="profile__title" value="" pattern="^[a-zA-Zа-яА-ЯеЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" minlength="2" maxlength="30" required>
+            <input type="text" class="popup__input" id="title-input" placeholder="Название" name="place-name" value="" pattern="^[a-zA-Zа-яА-ЯеЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" minlength="2" maxlength="30" required>
             <span class="popup__error title-input-error"></span>
-            <input type="url" class="popup__input" id="url-input" placeholder="Ссылка на картинку" name="profile__subtitle" value="" required>
+            <input type="url" class="popup__input" id="url-input" placeholder="Ссылка на картинку" name="url-link" value="" required>
             <span class="popup__error url-input-error"></span>
           </fieldset>
             <input type="submit" class="popup__button" value="Создать" name="form__submit">
