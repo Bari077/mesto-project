@@ -1,34 +1,50 @@
 import './pages/index.css';
 
-import {editBtn, formProfile, modalProfile, addCardBtn, modalAddCard, closeBtn, formAddCard, initialCards, cardsContainer} from './components/utils.js';
-import {openPopup, closePopup} from './components/modal.js';
-import {setInputProfile, submitFormProfile, submitAddCard} from './components/forms.js';
+import {editBtn, formProfile, modalProfile, addCardBtn, modalAddCard, closeBtn, inputName, inputJob, profileName, profileJob, formAddCard, initialCards, cardsContainer} from './components/global.js';
+import { openPopup, closePopup } from './components/modal.js';
+import { setInitialInput, saveInputValue, disableButton } from './components/utils.js';
+import { addCard } from './components/card.js';
+import { enableValidation } from './components/validate.js';
 
-import {addCard} from './components/card.js';
 
-editBtn.addEventListener('click', () => {  
-  setInputProfile();
+function submitFormProfile (evt) {
+  evt.preventDefault();
+  saveInputValue(inputName, profileName);
+  saveInputValue(inputJob, profileJob);   
+  closePopup(modalProfile);  
+  evt.target.reset();  
+};
+
+function submitAddCard (evt) {
+  const inputTitle = formAddCard.elements['place-name'];
+  const inputImgLink = formAddCard.elements['url-link'];
+  const submitButton = formAddCard.elements['form__submit']; 
+  evt.preventDefault(); 
+  const newCard = addCard(inputImgLink.value, inputTitle.value);
+  cardsContainer.prepend(newCard);
+  disableButton(submitButton, 'popup__button_disabled');
+  closePopup(modalAddCard);
+  evt.target.reset();      
+};
+
+
+editBtn.addEventListener('click', () => { 
+  setInitialInput(inputName, profileName);
+  setInitialInput(inputJob, profileJob);
   openPopup(modalProfile);
 });
+
 formProfile.addEventListener('submit', submitFormProfile);
-
-
 
 addCardBtn.addEventListener('click', () => {
   openPopup(modalAddCard);
 });
-
 
 closeBtn.forEach(function(el) {
   el.addEventListener('click', () => {
     closePopup(el.closest('.popup'));
   });
 });
-
-
-
-
-
 
 formAddCard.addEventListener('submit', submitAddCard);
 
@@ -39,7 +55,6 @@ initialCards.forEach(function(el) {
 });
 
 
-import {enableValidation} from './components/validate.js';
 
 enableValidation();
 

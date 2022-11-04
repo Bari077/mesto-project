@@ -75,11 +75,7 @@ const enableValidation = () => {
   });
 };
 
-const disableButton = (buttonElement) => {
-  buttonElement.classList.add(validateSettings.inactiveButtonClass);
-  buttonElement.disabled = true;
-  
-}
 
-export {enableValidation, disableButton};
+
+export {enableValidation};
 

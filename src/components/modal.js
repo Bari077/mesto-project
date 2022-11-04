@@ -1,19 +1,16 @@
-import { popup } from "./utils.js"
 
-function closeEscHandler(evt) {
-  popup.forEach(function(el) {
+function closeEscHandler(evt) {  
     if(evt.key === 'Escape') {
-      closePopup(el.closest('.popup'));
+      closePopup(document.querySelector('.popup_opened'));
     }
-  }); 
 };
 
+
 function closeOverlayHandler(evt) {
-  popup.forEach(function(el) {
-    if(evt.target === el) {
-      closePopup(el.closest('.popup'));
-    }   
-  });
+  const popupOpened = document.querySelector('.popup_opened');  
+    if(evt.target === popupOpened) {
+      closePopup(popupOpened);
+    } 
 };
 
 function openPopup(popupId) {

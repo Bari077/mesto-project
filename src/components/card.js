@@ -1,4 +1,5 @@
 import { openPopup } from "./modal.js";
+import { popupImage, popupImageCaption } from './global.js';
 
 const cardTemplate = document.querySelector('#card-template').content;
 const modalImage = document.querySelector('#modal-Image');
@@ -11,11 +12,11 @@ function addCard (cardImg , cardTitle) {
     evt.target.classList.toggle('card__like_active');
   });
 
-  cardElement.querySelector('.card__image').addEventListener('click', function() {
-    openPopup(modalImage);    
-    document.querySelector('.popup__image').setAttribute('src', cardImg);
-    document.querySelector('.popup__image').setAttribute('alt', cardTitle);
-    document.querySelector('.popup__image-caption').textContent = cardTitle;
+  cardElement.querySelector('.card__image').addEventListener('click', function() {        
+    popupImage.setAttribute('src', cardImg);
+    popupImage.setAttribute('alt', cardTitle);
+    popupImageCaption.textContent = cardTitle;
+    openPopup(modalImage);
   });
   cardElement.querySelector('.card__trash').addEventListener('click', function(evt) {      
     evt.target.closest('.card').remove();
