@@ -5,6 +5,8 @@ import { openPopup, closePopup } from './components/modal.js';
 import { setInitialInput, saveInputValue, disableButton } from './components/utils.js';
 import { addCard } from './components/card.js';
 import { enableValidation } from './components/validate.js';
+import {getInitialCards, getMyProfile} from './components/api.js';
+import { data } from 'autoprefixer';
 
 
 function submitFormProfile (evt) {
@@ -49,14 +51,26 @@ closeBtn.forEach(function(el) {
 formAddCard.addEventListener('submit', submitAddCard);
 
 
-initialCards.forEach(function(el) {
+/*initialCards.forEach(function(el) {
   const cardElement = addCard(el.link , el.name);
   cardsContainer.prepend(cardElement);    
-});
+});*/
 
 
+function loadCards () {
+  getInitialCards().then(data => {
+    data.forEach(card => {
+      const cardElement = addCard(card.link , card.name);
+      cardsContainer.prepend(cardElement);
+    }) 
+  })   
+}
 
+getMyProfile();
+loadCards();
 enableValidation();
+
+
 
 
 
