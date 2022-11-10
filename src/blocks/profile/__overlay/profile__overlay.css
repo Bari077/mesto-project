@@ -1,0 +1,20 @@
+.profile__overlay {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;    
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    line-height: 0;
+    background-color: black;
+}
+
+.profile__overlay:hover .profile__avatar {
+    opacity: 0.6;
+}
+
+.profile__overlay:hover .profile__avatar-button {
+    opacity: 1;
+}
