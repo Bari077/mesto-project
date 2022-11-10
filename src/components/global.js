@@ -1,44 +1,27 @@
 const editBtn = document.querySelector('#editProfile');
-const formProfile = document.forms['profile-form'];
 const modalProfile = document.querySelector('#modal-profile');
 const addCardBtn = document.querySelector('#addCard');
 const modalAddCard = document.querySelector('#modal-addCard');
+const avatarBtn = document.querySelector('#editAvatar');
+const modalAvatar = document.querySelector('#modal-avatar');
+
 const closeBtn = document.querySelectorAll('.popup__close-button');
-const formAddCard = document.forms['addCard-form'];
 const cardsContainer = document.querySelector('.cards');
 const popupImage = document.querySelector('.popup__image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
-
-const inputName = formProfile.elements['name'];
-const inputJob = formProfile.elements['job'];
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
+const profileAvatar = document.querySelector('.profile__avatar')
 
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
+const formProfile = document.forms['profile-form'];
+const formAddCard = document.forms['addCard-form'];
+const formAvatar = document.forms['avatar-form'];
+const inputName = formProfile.elements['name'];
+const inputJob = formProfile.elements['job'];
+const inputTitle = formAddCard.elements['place-name'];
+const inputImgLink = formAddCard.elements['url-link'];
+const inputAvatarLink = formAvatar.elements['url-link'];
 
-export {editBtn, formProfile, modalProfile, addCardBtn, modalAddCard, closeBtn, formAddCard, inputName, inputJob, profileName, profileJob, initialCards, cardsContainer, popupImage, popupImageCaption}
+ 
+
+export {editBtn, formProfile, modalProfile, addCardBtn, modalAddCard, closeBtn, formAddCard, avatarBtn, modalAvatar, inputName, inputJob, inputTitle, inputImgLink, formAvatar, inputAvatarLink, profileName, profileJob, profileAvatar, cardsContainer, popupImage, popupImageCaption }
