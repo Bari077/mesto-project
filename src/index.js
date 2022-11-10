@@ -34,73 +34,73 @@ function loadData(isLoading, formSelect) {
 };
 
 function submitFormAvatar (evt) {
-  loadData(true, formAvatar);
   evt.preventDefault();
+  loadData(true, formAvatar);  
   updateAvatar(`${inputAvatarLink.value}`)
   .then(avatar => {
     profileAvatar.setAttribute('src', avatar.avatar);
+    closePopup(modalAvatar); 
   })
   .catch((err) => {
     alert(err);
   })
   .finally(() => {
-    loadData(false, formAvatar)
+    loadData(false, formAvatar)    
+    evt.target.reset();
   });
-  disableButton(formAvatar, 'popup__button_disabled');
-  closePopup(modalAvatar);  
-  evt.target.reset();   
+     
 }
 
 function submitFormProfile (evt) {
   evt.preventDefault();
-  loadData(true, formProfile);
+  loadData(true, formProfile);  
   updateProfile(`${inputName.value}`, `${inputJob.value}`)
   .then(me => {
     profileName.textContent = me.name;
     profileJob.textContent = me.about;
+    closePopup(modalProfile);
   })
   .catch((err) => {
     alert(err);
   })
   .finally(() => {
     loadData(false, formProfile)
-  });
-  disableButton(formProfile, 'popup__button_disabled');   
-  closePopup(modalProfile);  
-  evt.target.reset();  
+  });    
 };
 
 function submitAddCard (evt) {    
   evt.preventDefault();
-  loadData(true, formAddCard);
+  loadData(true, formAddCard);  
   sendNewCard(inputTitle.value, inputImgLink.value).
   then(card => {
     const myCard = addCard(card.link, card.name, card.owner._id, card.owner._id, card._id, card.likes);    
     cardsContainer.prepend(myCard)
+    closePopup(modalAddCard);
   })
   .catch((err) => {
     alert(err);
   })
   .finally(() => {
     loadData(false, formAddCard)
-  });
-  disableButton(formAddCard, 'popup__button_disabled');
-  closePopup(modalAddCard);
-  evt.target.reset();      
+    evt.target.reset();
+  });           
 };
 
 avatarBtn.addEventListener('click', () => {
-  openPopup(modalAvatar);
+  disableButton(formAvatar, 'popup__button_disabled');
+  openPopup(modalAvatar);  
 })
 
 editBtn.addEventListener('click', () => { 
   setInitialInput(inputName, profileName);
   setInitialInput(inputJob, profileJob);
-  openPopup(modalProfile);
+  disableButton(formProfile, 'popup__button_disabled');
+  openPopup(modalProfile);  
 });
 
 addCardBtn.addEventListener('click', () => {
-  openPopup(modalAddCard);
+  disableButton(formAddCard, 'popup__button_disabled');
+  openPopup(modalAddCard);  
 });
 
 formAvatar.addEventListener('submit', submitFormAvatar);
@@ -115,43 +115,27 @@ closeBtn.forEach(function(el) {
   });
 });
 
-function loadCards () {
-  getMyProfile().then(me => {
-    const profileId = me._id
-    getInitialCards().then(data => {
-      data.forEach(card => {
-        const cardElement = addCard(card.link , card.name, card.owner._id, profileId, card._id, card.likes);
-        cardsContainer.append(cardElement);
-      }) 
-    })
-    .catch((err) => {
-      alert(err);
-    });
-  })
-     
-}
-
-
-function loadProfile() {
+function loadPage() {
   loadingSpinner(true);
-  getMyProfile().then(me => {
-    profileName.textContent = me.name;
-    profileJob.textContent = me.about;
-    profileAvatar.setAttribute('src', me.avatar);
+  Promise.all([getMyProfile(), getInitialCards()])
+  .then(([profile, initialCards]) => {
+    profileName.textContent = profile.name;
+    profileJob.textContent = profile.about;
+    profileAvatar.setAttribute('src', profile.avatar);
+    initialCards.forEach(card => {
+      const cardElement = addCard(card.link , card.name, card.owner._id, profile._id, card._id, card.likes);
+      cardsContainer.append(cardElement);
+    }) 
   })
   .catch((err) => {
-    alert(err);
+    alert(err)
   })
   .finally(() => {
     loadingSpinner(false)
-  })  
+  })
 }
 
-
-
-
-loadProfile();
-loadCards();
+loadPage();
 enableValidation();
 
 

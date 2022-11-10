@@ -6,10 +6,9 @@ function closeEscHandler(evt) {
 };
 
 
-function closeOverlayHandler(evt) {
-  const popupOpened = document.querySelector('.popup_opened');  
-    if(evt.target === popupOpened) {
-      closePopup(popupOpened);
+function closeOverlayHandler(evt) {  
+    if(evt.target === evt.currentTarget) {
+      closePopup(evt.target);
     } 
 };
 

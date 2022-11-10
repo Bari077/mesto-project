@@ -14,8 +14,7 @@ function addCard (cardImg , cardTitle, ownerId, profileId, cardId, likes) {
   likes.forEach(el => {
     if(el._id === profileId) {
       isLiked = true;
-      cardElement.querySelector('.card__like').classList.add('card__like_active');
-      return isLiked      
+      cardElement.querySelector('.card__like').classList.add('card__like_active');           
     }    
   });  
   cardElement.querySelector('.card__like').addEventListener('click', function(evt) {
@@ -24,6 +23,7 @@ function addCard (cardImg , cardTitle, ownerId, profileId, cardId, likes) {
       .then(item => {
         isLiked = true,
         cardElement.querySelector('.card__like-counter').textContent = item.likes.length;
+        evt.target.classList.toggle('card__like_active');
       });      
     }
     else {
@@ -31,9 +31,10 @@ function addCard (cardImg , cardTitle, ownerId, profileId, cardId, likes) {
       .then(item => {
         isLiked = false,
         cardElement.querySelector('.card__like-counter').textContent = item.likes.length;
+        evt.target.classList.toggle('card__like_active');
       });
     }       
-    evt.target.classList.toggle('card__like_active');
+    
   });
 
   cardElement.querySelector('.card__image').addEventListener('click', function() {        
