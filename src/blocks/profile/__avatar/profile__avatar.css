@@ -2,5 +2,6 @@
     width: 120px;
     object-fit: cover;
     aspect-ratio: 1;
-    transition: opacity 0.4s linear;    
+    transition: opacity 0.4s linear;
+    border-radius: 50%;    
 }
