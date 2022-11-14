@@ -39,14 +39,14 @@ function submitFormAvatar (evt) {
   updateAvatar(`${inputAvatarLink.value}`)
   .then(avatar => {
     profileAvatar.setAttribute('src', avatar.avatar);
-    closePopup(modalAvatar); 
+    closePopup(modalAvatar);        
+    evt.target.reset(); 
   })
   .catch((err) => {
     alert(err);
   })
   .finally(() => {
-    loadData(false, formAvatar)    
-    evt.target.reset();
+    loadData(false, formAvatar)
   });
      
 }
@@ -75,14 +75,14 @@ function submitAddCard (evt) {
   then(card => {
     const myCard = addCard(card.link, card.name, card.owner._id, card.owner._id, card._id, card.likes);    
     cardsContainer.prepend(myCard)
-    closePopup(modalAddCard);
+    closePopup(modalAddCard);    
+    evt.target.reset();
   })
   .catch((err) => {
     alert(err);
   })
   .finally(() => {
     loadData(false, formAddCard)
-    evt.target.reset();
   });           
 };
 
